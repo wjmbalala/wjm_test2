@@ -19,7 +19,7 @@ class RDrop(nn.Module):
         self.ce = nn.MSELoss()
         self.kld = nn.KLDivLoss()
 
-    def forward(self, pred, true, pred1, true1, kl_weight=0.5):
+    def forward(self, pred, true, pred1, true1, kl_weight=3):
         """
         Args:
             logits1: One output of the classification model.
