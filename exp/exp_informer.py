@@ -167,9 +167,9 @@ class Exp_Informer(Exp_Basic):
         early_stopping = EarlyStopping(patience=self.args.patience, verbose=True)
         
         model_optim = self._select_optimizer()
-        # criterion = self._select_criterion()
+        criterion = self._select_criterion()
         # TODO 修改损失函数
-        criterion = self._select_criterion2()
+        # criterion = self._select_criterion2()
 
         if self.args.use_amp:
             scaler = torch.cuda.amp.GradScaler()
