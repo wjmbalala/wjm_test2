@@ -147,7 +147,7 @@ class Exp_Informer(Exp_Basic):
             # TODO 原文对回归任务，r_drop使用mse代替KL
             Lmser = criterion(pred.detach().cpu(), pred1.detach().cpu())
             Lmse = (criterion(pred.detach().cpu(), true.detach().cpu()) + criterion(pred1.detach().cpu(), true.detach().cpu()))/2
-            loss = Lmse + Lmser
+            loss = Lmse + 3*Lmser
 
             # loss = criterion(pred.detach().cpu(), true.detach().cpu(), pred1.detach().cpu(), true1.detach().cpu())
 
@@ -210,7 +210,7 @@ class Exp_Informer(Exp_Basic):
                 # 原文对回归任务，r_drop使用mse代替KL
                 Lmser = criterion(pred, pred1)
                 Lmse = (criterion(pred, true) + criterion(pred1, true))/2
-                loss = Lmse + Lmser
+                loss = Lmse + 3*Lmser
 
                 # r_drop使用KL计算
                 # loss = criterion(pred, true, pred1, true1)
